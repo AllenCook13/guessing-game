@@ -34,11 +34,13 @@ function handleGuess(guess) {
 function askGuess() {
     let maxNum = Infinity;
     let minNum = -Infinity;
-    rl.question('Enter a max number: ', (num) => {
-        maxNum = num;
-        rl.question('Enter a min number', (num) => {
-            minNum = num; 
+    rl.question('Enter a max number: ', (num1) => {
+        maxNum = parseInt(num1);
+        rl.question('Enter a min number: ', (num2) => {
+            minNum = parseInt(num2); 
             console.log(`I'm thinking of a number between ${minNum} and ${maxNum}: `)
+            secretNumber = Math.floor(Math.random() * (maxNum - minNum) + minNum);
+            console.log(secretNumber)
             let guess = 0; 
             handleGuess(guess);
             // rl.question('Enter a guess: ', handleGuess)
